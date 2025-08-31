@@ -1,0 +1,13 @@
+trigger:  
+ batch:
+ branches:
+  include:
+    - feature/*
+    - main
+
+pool: Agent_1
+steps:
+- task: TerraformInstaller@1
+  displayName: terraforminstall
+  inputs:
+    terraformVersion: 'latest'
