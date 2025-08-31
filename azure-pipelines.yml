@@ -31,3 +31,18 @@ steps:
   inputs:
     notifyUsers: 'prafullakumar4321@gmail.com'
     approvers: 'prafullakumar4321@gmail.com'
+- task: TerraformTask@5
+  displayName: terraforminit
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'wif-prafulla'
+    backendAzureRmResourceGroupName: 'rg-pipline'
+    backendAzureRmStorageAccountName: 'stg22pipeline'
+    backendAzureRmContainerName: 'containerpipeline22'
+    backendAzureRmKey: 'key.tfstate'
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'wif-prafulla'
