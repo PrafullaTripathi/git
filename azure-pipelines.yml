@@ -20,3 +20,9 @@ steps:
     backendAzureRmStorageAccountName: 'stg22pipeline'
     backendAzureRmContainerName: 'containerpipeline22'
     backendAzureRmKey: 'key.tfstate'
+- task: TerraformTask@5
+  displayName: terraformplan
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'wif-prafulla'
