@@ -10,6 +10,11 @@ steps:
   displayName: terraforminstall
   inputs:
     terraformVersion: 'latest'
+- task: PowerShell@2
+  displayName: azlogin
+  inputs:
+    targetType: 'inline'
+    script: 'az login'
 - task: TerraformTask@5
   displayName: terraforminit
   inputs:
@@ -37,6 +42,7 @@ steps:
     backendAzureRmContainerName: 'containerpipeline22'
     backendAzureRmKey: 'key.tfstate'
 - task: TerraformTask@5
+  displayName: terraformapply
   inputs:
     provider: 'azurerm'
     command: 'apply'
