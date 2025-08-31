@@ -10,3 +10,13 @@ steps:
   displayName: terraforminstall
   inputs:
     terraformVersion: 'latest'
+- task: TerraformTask@5
+  displayName: terraforminit
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'wif-prafulla'
+    backendAzureRmResourceGroupName: 'rg-pipline'
+    backendAzureRmStorageAccountName: 'stg22pipeline'
+    backendAzureRmContainerName: 'containerpipeline22'
+    backendAzureRmKey: 'key.tfstate'
