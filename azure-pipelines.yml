@@ -26,3 +26,8 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'wif-prafulla'
+
+- task: ManualValidation@1
+  inputs:
+    notifyUsers: 'prafullakumar4321@gmail.com'
+    approvers: 'prafullakumar4321@gmail.com'
